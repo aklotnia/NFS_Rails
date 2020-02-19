@@ -1,0 +1,13 @@
+<div style="margin:20px" >
+<h1>Select your Conditions</h1>
+<%= form_tag create_race_path do %>
+    <%= label_tag "Location " %>
+    <%= collection_select :race, :location_id, @locations, :id, :description %><br>
+    <%= label_tag "Select Vehicle " %>
+    <%= collection_select :race, :car_id, @cars, :id, :name %><br>
+    <%= submit_tag "Start Race" %>
+<% end %>
+
+<%= button_to 'My Profile', user_path(current_user), method: :get %>
+</div>
+

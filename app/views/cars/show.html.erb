@@ -1,0 +1,28 @@
+<div style="margin:20px" >
+<h1><%= @car.name %></h1>
+<p>Color: <%= @car.color %></p>
+<h3>Shell</h3> 
+<p><%= @car.shell.name %><br>
+<%= @car.shell.description %></p>
+<h3>Engine</h3> 
+<p><%= @car.engine.name %> <br>
+<%= @car.engine.description %></p>
+<h3>Tires</h3> 
+<p><%= @car.tire.name %> <br>
+<%= @car.tire.description %></p>
+
+<h4>Statistics </h4>
+<p>acceleration <%= @car.average_acceleration %><br>
+Speed <%= @car.average_speed %><br>
+Handling <%= @car.average_handling %><br>
+</p>
+
+<% if @car.user == nil %>
+    <%=  %>
+<% else%>
+    <%= button_to "Supe your ride!", edit_car_path(@car), method: :get %>
+    <%= button_to "Donate to Cars4Kidz", delete_car_path(@car), method: :delete %>
+<%end%>
+
+<%= button_to "Your Page", user_path(session[:user_id]), method: :get %>
+</div>

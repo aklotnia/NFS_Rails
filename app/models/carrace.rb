@@ -1,0 +1,3 @@
+class Carrace < ApplicationRecord
+    
+end

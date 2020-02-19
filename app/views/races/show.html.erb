@@ -1,0 +1,40 @@
+<div style="margin:20px" >
+<% location_extension = @race.location.id.to_s + ".png" %>
+<div style="background-image: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)), url(<%= asset_path location_extension %>);background-size: 100% 100%;">
+<div >
+<h1> Start yo enginzzzz</h1>
+
+<h3>Location <%= @race.location.name %></h3>
+<h3>Weather Conditions <%= @race.location.call %></h3>
+
+
+<table>
+<tr><th></th><th>Your Car</th><th>                                            | </th><th>Opponent</th></tr>
+<tr><td>Name</td><td><%= @race.car.name %></td><td>                          | </td><td><%= @race.location.car.name %></td></tr>
+<tr><td>Shell</td><td><%= @race.car.shell.name %></td><td>                    | </td><td><%= @race.location.car.shell.name %></td></tr>
+<tr><td>Description</td><td><%= @race.car.shell.description %></td><td>      | </td><td><%= @race.location.car.shell.description %></td></tr>
+<tr><td>Engine</td><td><%= @race.car.engine.name %></td><td>                 | </td><td><%= @race.location.car.engine.name %></td></tr>
+<tr><td>Description</td><td><%= @race.car.engine.description %></td><td>     | </td><td><%= @race.location.car.engine.description %></td></tr>
+<tr><td>Tires</td><td><%= @race.car.tire.name %></td><td>                    | </td><td><%= @race.location.car.tire.name %></td></tr>
+<tr><td>Description</td><td><%= @race.car.tire.description %></td><td>       | </td><td><%= @race.location.car.tire.description %></td></tr>
+<tr><td>Speed</td><td><%= @race.car.average_speed %></td><td>                | </td><td><%= @race.location.car.average_speed %></td></tr>
+<tr><td>acceleration</td><td><%= @race.car.average_acceleration %></td><td>  | </td><td><%= @race.location.car.average_acceleration%></td></tr>
+<tr><td>Handling</td><td><%= @race.car.average_handling %></td><td>          | </td><td><%= @race.location.car.average_handling%></td></tr>
+
+</table>
+<%= button_to 'See Results', result_path(@race), method: :get %>
+ <br>
+ <br>
+ <br>
+
+ <br>
+ <br>
+ <br>
+
+ <br>
+ <br>
+ <br>
+<p>_</p>
+ </div>
+</div>
+</div>

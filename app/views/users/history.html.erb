@@ -1,0 +1,44 @@
+<h1> Race history</h1>
+
+<h3>Total Races <%= @races.length %></h3>
+<h3>Total Wins <%= @user.races.where(win: 1).length %></h3>
+<h3>Total Losses <%= @user.races.where(win: 0).length %></h3>
+<h3>Win Rate <%= ((@user.races.where(win: 1).length.to_f/@races.length.to_f) * 100.0).round(2) %> % </h3>
+
+
+
+<table>
+
+<tr>
+    
+    <th>Your car</th> <th>| |</th>
+    <th>Location</th> <th>|  |</th>
+    <th>Opponent's car</th> <th>|  |</th>
+    <th>Result</th>
+</tr>
+
+<% @races.each do |race| %>
+    <%if race.win%>
+        <% x = "Win" %>
+    <%else%>
+        <%x = "Loss"%>
+    <%end%>
+
+
+
+<tr>
+    <td><%= link_to race.car.name, car_path(race.car)%></td> <td></td>
+    <td><%= race.location.name %></td> <td></td>
+    <td><%= link_to race.location.car.name, car_path(race.location.car) %></td> <td></td>
+    <td><%= x %></td>
+</tr>
+
+<% end %>
+
+</table>
+<br>
+<br>
+<%= button_to "Your Page", user_path(session[:user_id]), method: :get %>
+
+ 
+  

@@ -1,0 +1,35 @@
+<div style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(<%= asset_path "garage.png" %>);background-size: 100% 100%;"><div style="margin:20px"><h1>Hello <%= @user.username %>, here is your garage </h1>
+<h3>Cash: $<%= @user.cash %></h3>
+
+<h4>Cars: </h4>
+<% @user.cars.each do |car| %>
+    <p style="position:absolute;"><%= link_to car.name, car_path(car) %></p><br>
+<% end %> <br>
+
+<%= button_to 'Create a car', new_car_path, method: :get %>
+
+<br>
+<%= button_to "Race for Money", new_race_path, method: :get %>
+<br>
+<%= button_to "Race for Pinks", new_race_pink_path, method: :get %>
+<br>
+<%= button_to 'Race history', history_path, method: :get %>
+
+
+<% if flash[:errors] %>
+    <%= flash[:errors] %>
+<% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+</div>
+
+

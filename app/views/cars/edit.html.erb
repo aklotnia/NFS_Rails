@@ -1,0 +1,32 @@
+<div style="margin:20px" >
+<h1> Supe up <%= @car.name %> </h1>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <%= error %>
+    <% end %>
+<% end %>
+
+<%= form_for @car do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :color %>
+    <%= f.text_field :color %><br>
+    <%= f.label :shell_id %>
+    <%= f.collection_select :shell_id, @shells, :id, :full_stats %><br>
+    <%= f.label :engine_id %>
+    <%= f.collection_select :engine_id, @engines, :id, :full_stats %><br>
+    <%= f.label :tire_id %>
+    <%= f.collection_select :tire_id, @tires, :id, :full_stats %><br>
+    <%= f.submit %>
+<% end %>
+<br>
+<p>
+Format: Name/type <br>
+a: acceleration<br>
+S: Speed<br>
+H: Handling<br>
+</p>
+
+<br><%= button_to "Your Page", user_path(session[:user_id]), method: :get %>
+</div>

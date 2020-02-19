@@ -1,0 +1,14 @@
+<div style="margin:20px" >
+<% if @race.win %>
+    <h1>Winner Winner Chicken Dinner</h1>
+    <h2>You win your opponents ride</h2>
+<% else%>
+    <h1>Loser Loser Chicken bruiser</h1>
+    <h2>You lost yo ride</h2>
+<% end%>
+    
+<%= button_to 'My Profile', user_path(current_user), method: :get %>
+<%= button_to 'Race again', new_race_pink_path, method: :get %>
+
+</div>
+
